@@ -343,10 +343,12 @@ export default {
     },
     onClick(index) {
       this.selectedCandidateID = this.candidates[index].username;
-      this.iteration = index;
-      this.index = index;
-      this.videoResponses = this.candidates[index]["videoResponses"];
+      this.videoResponses = this.candidateProfiles[index]["videoResponses"];
       this.chips = this.candidates[index]["competencies"];
+      this.iteration = index;
+      this.videoOptions.sources[0].src = this.videoResponses[0];
+      this.componentKey += 1;
+      this.index = index;
     },
     saveCompetency() {
       let myJSON = JSON.stringify(this.chips);
